@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="text-center text-4xl my-5">Dyqani i bicikletave</h1>
+    </header>
+    <main x-data="{open:false}">
+      <button
+        @click="open=!open"
+        class="bg-sky-300 text-white px-4 py-2 w-full mb-2"
+      >
+        Shiko bicikletat
+      </button>
+
+      <section
+        x-show="open"
+        id="bicikletat"
+        class="border border-slate-300 rounded-lg p-4 grid grid-cols-2 md:grid-cols-4 gap-8"
+        x-data="{ items: [{
+      id: 1,
+      name: 'biciklete1',
+      cmimi: 200,
+      sasia: 22,
+      img: 'https://www.jamisbikes.com/wp-content/uploads/2020/07/21_bosscruiser7_stepover_blue_lagoon_600px.png'
+  }, {
+      id: 2,
+      name: 'biciklete2',
+      cmimi: 300,
+      sasia: 13,
+      img: 'https://s3.ap-south-1.amazonaws.com/choosemybicycle.webp/images/bicycles/battalion-r25.webp'
+  }, {
+      id: 3,
+      name: 'biciklete3',
+      cmimi: 500,
+      sasia: 521,
+      img: 'https://www.jamisbikes.com/wp-content/uploads/2020/07/21_bosscruiser7_stepover_blue_lagoon_600px.png'
+  }, {
+      id: 4,
+      name: 'biciklete4',
+      cmimi: 400,
+      sasia: 122,
+      img: 'https://s3.ap-south-1.amazonaws.com/choosemybicycle.webp/images/bicycles/battalion-r25.webp'
+  }] }"
+      >
+        <template
+          class="border border-slate-300 rounded-lg p-4"
+          x-for="(item, index) in items"
+          :key="index"
+        >
+          <ul>
+            <a href="shikoBicikleten.html"
+              ><img
+                :src="item.img"
+                alt="item.name"
+                class="border border-slate-300 border-2 p-4 rounded-lg hover:scale-110 overflow-hidden"
+            /></a>
+            <li x-text="item.name" class="font-bold text-lg capitalize"></li>
+            <li>Cmimi <span x-text="item.cmimi" class="font-bold"></span>€</li>
+            <li>Sasia <span x-text="item.sasia" class="font-bold"></span></li>
+            <a href="shikoBicikleten.html"
+              ><button class="px-4 py-2 text-white bg-green-300">
+                Bli tani!
+              </button></a
+            >
+          </ul>
+        </template>
+      </section>
+    </main>
+    <footer class="text-center mb-5 mt-3">Bicikleta juaj @2023</footer>
+  </body>
+</html>
